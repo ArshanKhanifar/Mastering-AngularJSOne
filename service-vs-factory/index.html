@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Service vs Factory</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="ExampleController as example">
+        <p>click here for the service!</p>
+        <button ng-click="example.sayHelloService()">click me!</button>
+        <p>click here for the factory!</p>
+        <button ng-click="example.sayHelloFactory()">click me!</button>
+    </div>
+    <p>so the lessons learned: </p>
+    <ul>
+        <li>Services get passed constructor functions, but they also can just simply return an object. No difference</li>
+        <li>Factories, however, cannot be constructor functions, they can, however, return functions and stuff</li>
+        <li>Services call the new keyword.</li>
+    </ul>
+
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
