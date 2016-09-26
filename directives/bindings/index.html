@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="Controller as ctrl">  
+        <h3>my name : {{name}}</h3>
+        <label>change greeter's name:</label> <input type="name" ng-model="name"> <br>        
+        <h3>contact info:</h3>
+        <ul>
+            <li>name is : {{contact.name}}</li>
+            <li>number is : {{contact.number}}</li>
+        </ul>
+        <label>change name:</label> <input type="text" ng-model="contact.name"> <br>
+        <label>change number:</label> <input type="number" ng-model="contact.number"> <br>
+        <greeter name="{{ctrl.name}}"></greeter>
+        <h3>contact view with two way data binding: </h3>
+        <contact-view contact-info="contact"></contact-view>
+        <h3>contact view with one way data binding: </h3>
+        <contact-view-one contact-name="contact.name" contact-number="contact.number"></contact-view-one>
+    </div>
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

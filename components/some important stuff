@@ -1,0 +1,11 @@
+The keys in the object hash map to the name of the property on the isolate scope; the values define how the property is bound to the parent scope, via matching attributes on the directive's element:
+
+
+
+
+@ or @attr - bind a local scope property to the value of DOM attribute. The result is always a string since DOM attributes are strings. If no attr name is specified then the attribute name is assumed to be the same as the local name. Given <my-component my-attr="hello {{name}}"> and the isolate scope definition scope: { localName:'@myAttr' }, the directive's scope property localName will reflect the interpolated value of hello {{name}}. As the name attribute changes so will the localName property on the directive's scope. The name is read from the parent scope (not the directive's scope).
+
+@ is a string, so if you wanna make a context, use {{}} in that string 
+
+= is an expression, it'll get evaluated, it has to be a reference, not a value, cuz then it won't be assingable and two way data binding doesn't work : e.g: my-attribute="1+2" is not valid because  you can't assign something back to 1+2
+

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="MyController as ctrl">  
+       <h3>List of the books</h3>
+       <div>
+           {{books}}
+       </div>
+       <button ng-click="addItem()">click to add an item</button>
+       <ul>
+           <li my-repeat="book in Books">
+               <p>book : {{book.name}}</p>
+               <p>author : {{book.author}}</p>               
+           </li>
+       </ul>
+    </div>
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

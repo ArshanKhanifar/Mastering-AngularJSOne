@@ -3,18 +3,21 @@
     <meta charset="UTF-8">
     <title>Directives</title>
 </head>
-<body ng-app="myApp">
-    <div ng-controller="Controller">
-        <label for="name">change the name :</label>
-        <input type="text" name="name" ng-model="customer.name"><br>
-        <my-customer type="name"></my-customer>  <br>      
-        <label for="address">change the address :</label>
-        <input type="text" name="address" ng-model="customer.address"><br>
-        <my-customer type="address"></my-customer>        
-        
-        
-    </div>
-<script src="bower_components/angular/angular.min.js"></script>
+<body ng-app="docsTabsExample">
+
+<my-tabs>
+    <my-pane title="Hello">
+        <p>Lorem ipsum dolor sit amet</p>
+    </my-pane>
+    <my-pane title="World">
+        <em>Mauris elementum elementum enim at suscipit.</em>
+        <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+    </my-pane>
+</my-tabs>
+
+
+
+<script src="../../bower_components/angular/angular.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

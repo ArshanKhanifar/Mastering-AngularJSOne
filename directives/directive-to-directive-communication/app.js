@@ -1,19 +1,40 @@
-(angular
-    .module("myApp",[])
-    .controller('Controller',['$scope',function($scope){
-        $scope.customer = {
-            name: 'Naomi',
-            address: '1600 Amphitheatre'
-        };
-    }])
-    .directive('myCustomer', function() {
-        return {
-            templateUrl: function(elem, attr) {
-                return 'customer-' + attr.type + '.html';
-            }
-        };
-    })
-)();
+angular.module('docsTabsExample', [])
+.directive('myTabs', function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        scope: {},
+        controller: ['$scope', function MyTabsController($scope) {
+            var panes = $scope.panes = [];
 
-// CHALLENGE: ADD THE ABILITY TO TOGGLE THE TEMPLATE TO SHOW EITHER NAME OR ADDRESS.
-// U NEED $compile FOR THAT! SO NEXT LEVEL! 
+            $scope.select = function(pane) {
+                angular.forEach(panes, function(pane) {
+                    pane.selected = false;
+                });
+                pane.selected = true;
+            };
+
+            this.addPane = function(pane) {
+                if (panes.length === 0) {
+                    $scope.select(pane);
+                }
+                panes.push(pane);
+            };
+        }],
+        templateUrl: 'my-tabs.html'
+    };
+})
+.directive('myPane', function() {
+    return {
+        require: '^myTabs',
+        restrict: 'E',
+        transclude: true,
+        scope: {
+            title: '@'
+        },
+        link: function(scope, element, attrs, tabsCtrl) {
+            tabsCtrl.addPane(scope);
+        },
+        templateUrl: 'my-pane.html'
+    };
+});
