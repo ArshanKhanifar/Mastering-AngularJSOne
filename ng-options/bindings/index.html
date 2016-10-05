@@ -1,0 +1,15 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="Controller">  
+        <h1>{{name}}</h1>
+        <select ng-options="plan.value as plan.label for plan in plans" ng-model="newUser.plan"></select>
+        <p>user's plan is : {{newUser.plan}}</p>
+    </div>
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

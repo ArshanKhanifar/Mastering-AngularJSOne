@@ -1,4 +1,4 @@
-function EditableFieldController($scope, $element, $attrs) {
+function EditableFieldController() {
   var ctrl = this;
   ctrl.editMode = false;
 
